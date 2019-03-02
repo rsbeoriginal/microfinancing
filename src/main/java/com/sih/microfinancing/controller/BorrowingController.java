@@ -1,9 +1,13 @@
 package com.sih.microfinancing.controller;
 
+import java.util.List;
+
 import com.sih.microfinancing.config.ApiConstants;
+import com.sih.microfinancing.dto.BorrowerListingDTO;
 import com.sih.microfinancing.dto.ResponseDTO;
 import com.sih.microfinancing.entity.BorrowerListing;
-import com.sih.microfinancing.services.impl.BorrowerService;
+import com.sih.microfinancing.services.BorrowerService;
+import com.sih.microfinancing.services.impl.BorrowerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(ApiConstants.BORROWING)
 public class BorrowingController {
+
 
     @Autowired
     BorrowerService borrowerService;
@@ -22,6 +27,21 @@ public class BorrowingController {
             responseDTO.setResponse(borrowerService.addListing(borrowerListing));
             responseDTO.setSuccess(true);
         }catch (Exception e){
+            responseDTO.setSuccess(false);
+            responseDTO.setMessage(e.getMessage());
+        }
+        return responseDTO;
+    }
+
+
+    @GetMapping("/getListing")
+    public ResponseDTO<List<BorrowerListingDTO>> getListing(){
+        ResponseDTO<List<BorrowerListingDTO>> responseDTO;
+        try {
+            responseDTO = borrowerService.getListing();
+
+        }catch (Exception e){
+            responseDTO = new ResponseDTO<>();
             responseDTO.setSuccess(false);
             responseDTO.setMessage(e.getMessage());
         }

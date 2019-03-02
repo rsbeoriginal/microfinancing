@@ -3,6 +3,9 @@ package com.sih.microfinancing.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -13,7 +16,9 @@ public class LenderListing {
   @GeneratedValue(generator = "uuid")
   @GenericGenerator(name="uuid",strategy = "uuid2")
   private String id;
-  private String createdBy;
+  @ManyToOne
+  @JoinColumn(name = "user_id")
+  private User createdBy;
   private double actualAmmount;
   private double ammountLeft;
 
@@ -25,11 +30,11 @@ public class LenderListing {
     this.id = id;
   }
 
-  public String getCreatedBy() {
+  public User getCreatedBy() {
     return createdBy;
   }
 
-  public void setCreatedBy(String createdBy) {
+  public void setCreatedBy(User createdBy) {
     this.createdBy = createdBy;
   }
 

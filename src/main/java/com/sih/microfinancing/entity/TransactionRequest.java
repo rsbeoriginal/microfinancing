@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -20,8 +21,12 @@ public class TransactionRequest {
   @ManyToOne
   @JoinColumn(name = "borrower_listing_id")
   private BorrowerListing borrowerListing;
-  private String borrowerId;
-  private String lenderId;
+  @ManyToOne
+  @JoinColumn(name = "borrower_id")
+  private User borrowerId;
+  @ManyToOne
+  @JoinColumn(name = "lender_id")
+  private User lenderId;
   private double ammount;
   private String requestType;
 
@@ -42,13 +47,6 @@ public class TransactionRequest {
     this.lenderListing = lenderListing;
   }
 
-  public String getBorrowerId() {
-    return borrowerId;
-  }
-
-  public void setBorrowerId(String borrowerId) {
-    this.borrowerId = borrowerId;
-  }
 
   public BorrowerListing getBorrowerListing() {
     return borrowerListing;
@@ -66,11 +64,19 @@ public class TransactionRequest {
     this.ammount = ammount;
   }
 
-  public String getLenderId() {
+  public User getBorrowerId() {
+    return borrowerId;
+  }
+
+  public void setBorrowerId(User borrowerId) {
+    this.borrowerId = borrowerId;
+  }
+
+  public User getLenderId() {
     return lenderId;
   }
 
-  public void setLenderId(String lenderId) {
+  public void setLenderId(User lenderId) {
     this.lenderId = lenderId;
   }
 
