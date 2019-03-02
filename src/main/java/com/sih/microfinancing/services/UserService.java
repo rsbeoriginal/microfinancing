@@ -1,4 +1,9 @@
 package com.sih.microfinancing.services;
 
-public class UserService {
+import com.sih.microfinancing.dto.UserDTO;
+
+public interface UserService {
+    UserDTO save(UserDTO userDTO);
+
+    Boolean checkIfUserExists(String userId);
 }
