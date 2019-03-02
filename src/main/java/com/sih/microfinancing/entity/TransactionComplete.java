@@ -76,7 +76,7 @@ public class TransactionComplete {
 
   @Override
   public String toString() {
-    return "TransactionInProgress{" + "id='" + id + '\'' + ", lenderListing=" + lenderListing + ", borrowerListing="
+    return "TransactionInProgressRepository{" + "id='" + id + '\'' + ", lenderListing=" + lenderListing + ", borrowerListing="
         + borrowerListing + ", borrowerId='" + borrowerId + '\'' + ", lenderId='" + lenderId + '\'' + ", ammount="
         + ammount + '}';
   }

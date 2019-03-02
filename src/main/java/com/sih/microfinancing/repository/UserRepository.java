@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<User,String> {
 
-    @Query("SELECT COUNT(*) FROM User WHERE id = ?1")
+    @Query(value = "SELECT COUNT(*) FROM user_ WHERE id = ?1",nativeQuery = true)
     int checkIfUserExists(String userId);
 }
