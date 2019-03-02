@@ -55,14 +55,19 @@ public class TransactionController {
       responseDTO.setMessage(e.getMessage());
       responseDTO.setSuccess(false);
     }
-
     return responseDTO;
   }
-
-
-
-
-
-
+  @PostMapping("/paidTransaction/{id}")
+  public ResponseDTO<TransactionComplete> paidTransaction(@PathVariable String id){
+    ResponseDTO<TransactionComplete> responseDTO = new ResponseDTO<>();
+    try{
+      responseDTO.setResponse(transactionService.paidTransaction(id));
+      responseDTO.setSuccess(true);
+    }catch (Exception e){
+      responseDTO.setSuccess(false);
+      responseDTO.setMessage(e.getMessage());
+    }
+    return responseDTO;
+  }
 
 }

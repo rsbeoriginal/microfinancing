@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.sih.microfinancing.dto.ResponseDTO;
+import com.sih.microfinancing.entity.TransactionComplete;
 import com.sih.microfinancing.entity.TransactionInProgress;
 import com.sih.microfinancing.entity.TransactionRequest;
 import com.sih.microfinancing.repository.TransactionCompleteRepository;
@@ -55,5 +56,15 @@ public class TransactionServiceImpl implements TransactionService {
     responseDTO.setSuccess(true);
     responseDTO.setResponse(transactionInProgress);
     return responseDTO;
+  }
+
+  @Override
+  public TransactionComplete paidTransaction(String id) {
+    TransactionComplete transactionComplete = new TransactionComplete();
+    TransactionInProgress transactionInProgress = transactionInProgressRepository.findOne(id);
+    BeanUtils.copyProperties(transactionInProgress,transactionComplete);
+    TransactionComplete transactionComplete1 = transactionCompleteRepository.save(transactionComplete);
+    transactionInProgressRepository.delete(transactionInProgress);
+    return transactionComplete1;
   }
 }
