@@ -5,11 +5,9 @@ import com.sih.microfinancing.dto.ResponseDTO;
 import com.sih.microfinancing.entity.BorrowerListing;
 import com.sih.microfinancing.services.impl.BorrowerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping(ApiConstants.BORROWING)
 public class BorrowingController {

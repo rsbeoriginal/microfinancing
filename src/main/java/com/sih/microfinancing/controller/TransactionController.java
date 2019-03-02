@@ -3,6 +3,7 @@ package com.sih.microfinancing.controller;
 import java.util.List;
 
 import com.sih.microfinancing.config.ApiConstants;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import com.sih.microfinancing.dto.ResponseDTO;
 import com.sih.microfinancing.entity.TransactionComplete;
 import com.sih.microfinancing.entity.TransactionInProgress;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin
 @RestController
 @RequestMapping(ApiConstants.TRANSACTION)
 public class TransactionController {

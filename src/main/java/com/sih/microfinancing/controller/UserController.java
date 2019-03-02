@@ -7,6 +7,7 @@ import com.sih.microfinancing.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping(ApiConstants.USER)
 public class UserController {
