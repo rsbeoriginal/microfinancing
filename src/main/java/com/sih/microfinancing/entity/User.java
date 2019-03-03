@@ -17,7 +17,7 @@ public class User {
     String name;
     String kycNumber;
     int creditScore;
-    int agriCredit;
+    double agriCredit;
     String phoneNumber;
 
     public static String getTableName() {
@@ -64,11 +64,11 @@ public class User {
         this.creditScore = creditScore;
     }
 
-    public int getAgriCredit() {
+    public double getAgriCredit() {
         return agriCredit;
     }
 
-    public void setAgriCredit(int agriCredit) {
+    public void setAgriCredit(double agriCredit) {
         this.agriCredit = agriCredit;
     }
 
@@ -79,4 +79,5 @@ public class User {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
 }

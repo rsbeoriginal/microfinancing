@@ -42,4 +42,23 @@ public class UserController {
         return responseDTO;
     }
 
+    @GetMapping("/getDetails/{userId}")
+    public ResponseDTO<UserDTO> getDetails(@PathVariable String userId) {
+        ResponseDTO<UserDTO> responseDTO = new ResponseDTO<>();
+        try {
+            responseDTO.setResponse(userService.getDetails(userId));
+            responseDTO.setSuccess(true);
+        }catch (Exception e){
+            responseDTO.setSuccess(false);
+            responseDTO.setMessage(e.getMessage());
+        }
+        return responseDTO;
+    }
+
+    @GetMapping("/addAgriCredit/{userId}/{agriCredit}")
+    public ResponseDTO<Void> addAgriCredit(@PathVariable String userId, @PathVariable Double agriCredit) {
+        ResponseDTO<UserDTO> responseDTO;
+        return userService.addAgriCredit(userId, agriCredit);
+    }
+
 }

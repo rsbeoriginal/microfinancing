@@ -15,9 +15,10 @@ public class TransactionRequest {
   @GeneratedValue(generator = "uuid")
   @GenericGenerator(name="uuid",strategy = "uuid2")
   private String id;
-  @ManyToOne
-  @JoinColumn(name = "lender_listing_id")
-  private LenderListing lenderListing;
+  private long startTimestamp;
+  private int days;
+  private long endTimeStamp;
+  private double lenderRateOfInterest;
   @ManyToOne
   @JoinColumn(name = "borrower_listing_id")
   private BorrowerListing borrowerListing;
@@ -39,13 +40,6 @@ public class TransactionRequest {
     this.id = id;
   }
 
-  public LenderListing getLenderListing() {
-    return lenderListing;
-  }
-
-  public void setLenderListing(LenderListing lenderListing) {
-    this.lenderListing = lenderListing;
-  }
 
 
   public BorrowerListing getBorrowerListing() {
@@ -88,10 +82,43 @@ public class TransactionRequest {
     this.requestType = requestType;
   }
 
+  public long getStartTimestamp() {
+    return startTimestamp;
+  }
+
+  public void setStartTimestamp(long startTimestamp) {
+    this.startTimestamp = startTimestamp;
+  }
+
+  public int getDays() {
+    return days;
+  }
+
+  public void setDays(int days) {
+    this.days = days;
+  }
+
+  public long getEndTimeStamp() {
+    return endTimeStamp;
+  }
+
+  public void setEndTimeStamp(long endTimeStamp) {
+    this.endTimeStamp = endTimeStamp;
+  }
+
+  public double getLenderRateOfInterest() {
+    return lenderRateOfInterest;
+  }
+
+  public void setLenderRateOfInterest(double lenderRateOfInterest) {
+    this.lenderRateOfInterest = lenderRateOfInterest;
+  }
+
   @Override
   public String toString() {
-    return "TransactionRequest{" + "id='" + id + '\'' + ", lenderListing=" + lenderListing + ", borrowerListing="
-        + borrowerListing + ", borrowerId='" + borrowerId + '\'' + ", lenderId='" + lenderId + '\'' + ", ammount="
-        + ammount + ", requestType='" + requestType + '\'' + '}';
+    return "TransactionRequest{" + "id='" + id + '\'' + ", startTimestamp=" + startTimestamp + ", days=" + days
+        + ", endTimeStamp=" + endTimeStamp + ", lenderRateOfInterest=" + lenderRateOfInterest + ", borrowerListing="
+        + borrowerListing + ", borrowerId=" + borrowerId + ", lenderId=" + lenderId + ", ammount=" + ammount
+        + ", requestType='" + requestType + '\'' + '}';
   }
 }

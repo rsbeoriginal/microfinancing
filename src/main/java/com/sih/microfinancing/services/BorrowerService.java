@@ -11,4 +11,9 @@ public interface BorrowerService {
 
   ResponseDTO<List<BorrowerListingDTO>> getListing();
 
+  List<BorrowerListing> getListingById(String borrowerId);
+
+  BorrowerListing getListing(String id);
+
+  ResponseDTO<BorrowerListing> payLender(String transactionId, double ammount);
 }

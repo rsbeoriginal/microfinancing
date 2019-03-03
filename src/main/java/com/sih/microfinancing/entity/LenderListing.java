@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -19,8 +18,9 @@ public class LenderListing {
   @ManyToOne
   @JoinColumn(name = "user_id")
   private User createdBy;
-  private double actualAmmount;
-  private double ammountLeft;
+  private long startTimestamp;
+  private int days;
+  private long endTimeStamp;
 
   public String getId() {
     return id;
@@ -38,25 +38,33 @@ public class LenderListing {
     this.createdBy = createdBy;
   }
 
-  public double getActualAmmount() {
-    return actualAmmount;
+  public long getStartTimestamp() {
+    return startTimestamp;
   }
 
-  public void setActualAmmount(double actualAmmount) {
-    this.actualAmmount = actualAmmount;
+  public void setStartTimestamp(long startTimestamp) {
+    this.startTimestamp = startTimestamp;
   }
 
-  public double getAmmountLeft() {
-    return ammountLeft;
+  public int getDays() {
+    return days;
   }
 
-  public void setAmmountLeft(double ammountLeft) {
-    this.ammountLeft = ammountLeft;
+  public void setDays(int days) {
+    this.days = days;
+  }
+
+  public long getEndTimeStamp() {
+    return endTimeStamp;
+  }
+
+  public void setEndTimeStamp(long endTimeStamp) {
+    this.endTimeStamp = endTimeStamp;
   }
 
   @Override
   public String toString() {
-    return "LenderListing{" + "id='" + id + '\'' + ", createdBy='" + createdBy + '\'' + ", actualAmmount="
-        + actualAmmount + ", ammountLeft=" + ammountLeft + '}';
+    return "LenderListing{" + "id='" + id + '\'' + ", createdBy=" + createdBy + ", startTimestamp=" + startTimestamp
+        + ", days=" + days + ", endTimeStamp=" + endTimeStamp + '}';
   }
 }

@@ -15,7 +15,7 @@ public class LendingController {
     @Autowired
     LenderService lenderService;
 
-    @PostMapping
+    @PostMapping("/addListing")
     public ResponseDTO<LenderListing> addListing(@RequestBody LenderListing lenderListing){
         ResponseDTO<LenderListing> responseDTO = new ResponseDTO<>();
         try {
@@ -27,6 +27,8 @@ public class LendingController {
         }
         return responseDTO;
     }
+
+
 
 
 

@@ -21,7 +21,9 @@ public class BorrowerListing {
   @JoinColumn(name = "user_id")
   private User createdBy;
   private double ammountRequested;
-  private double ammountRecieved;
+  private double ammountGiven;
+  private double rateOfInterest;
+  private int duration;
 
   public String getId() {
     return id;
@@ -47,17 +49,34 @@ public class BorrowerListing {
     this.ammountRequested = ammountRequested;
   }
 
-  public double getAmmountRecieved() {
-    return ammountRecieved;
+  public double getAmmountGiven() {
+    return ammountGiven;
   }
 
-  public void setAmmountRecieved(double ammountRecieved) {
-    this.ammountRecieved = ammountRecieved;
+  public void setAmmountGiven(double ammountGiven) {
+    this.ammountGiven = ammountGiven;
+  }
+
+  public double getRateOfInterest() {
+    return rateOfInterest;
+  }
+
+  public void setRateOfInterest(double rateOfInterest) {
+    this.rateOfInterest = rateOfInterest;
+  }
+
+  public int getDuration() {
+    return duration;
+  }
+
+  public void setDuration(int duration) {
+    this.duration = duration;
   }
 
   @Override
   public String toString() {
-    return "BorrowerListing{" + "id='" + id + '\'' + ", createdBy='" + createdBy + '\'' + ", ammountRequested='"
-        + ammountRequested + '\'' + ", ammountRecieved='" + ammountRecieved + '\'' + '}';
+    return "BorrowerListing{" + "id='" + id + '\'' + ", createdBy=" + createdBy + ", ammountRequested="
+        + ammountRequested + ", ammountGiven=" + ammountGiven + ", rateOfInterest=" + rateOfInterest + ", duration="
+        + duration + '}';
   }
 }

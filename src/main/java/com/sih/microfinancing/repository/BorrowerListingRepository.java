@@ -14,4 +14,9 @@ public interface BorrowerListingRepository extends CrudRepository<BorrowerListin
   @Query("FROM BorrowerListing")
   List<BorrowerListing> selectAll();
 
+  @Query(value = "select * from borrower_listing where user_id=?1", nativeQuery = true)
+  List<BorrowerListing> getListingById(String borrowerId);
+
+  @Query(value = "select * from borrower_listing where id=?1", nativeQuery = true)
+  List<BorrowerListing> getListing(String id);
 }

@@ -7,9 +7,12 @@ public class BorrowerListingDTO {
   private String id;
   private User createdBy;
   private double ammountRequested;
-  private double ammountRecieved;
+  private double ammountGiven;
   private double rateOfInterest;
   private int creditScore;
+  private int duration;
+
+
 
   public String getId() {
     return id;
@@ -37,12 +40,12 @@ public class BorrowerListingDTO {
     this.ammountRequested = ammountRequested;
   }
 
-  public double getAmmountRecieved() {
-    return ammountRecieved;
+  public double getAmmountGiven() {
+    return ammountGiven;
   }
 
-  public void setAmmountRecieved(double ammountRecieved) {
-    this.ammountRecieved = ammountRecieved;
+  public void setAmmountGiven(double ammountGiven) {
+    this.ammountGiven = ammountGiven;
   }
 
   public double getRateOfInterest() {
@@ -61,10 +64,20 @@ public class BorrowerListingDTO {
     this.creditScore = creditScore;
   }
 
+  public int getDuration() {
+    return duration;
+  }
+
+  public void setDuration(int duration) {
+    this.duration = duration;
+  }
+
+
+
   @Override
   public String toString() {
-    return "BorrowerListingDTO{" + "id='" + id + '\'' + ", createdBy=" + createdBy + ", ammountRequested='"
-        + ammountRequested + '\'' + ", ammountRecieved='" + ammountRecieved + '\'' + ", rateOfInterest="
-        + rateOfInterest + ", creditScore=" + creditScore + '}';
+    return "BorrowerListingDTO{" + "id='" + id + '\'' + ", createdBy=" + createdBy + ", ammountRequested="
+        + ammountRequested + ", ammountGiven=" + ammountGiven + ", rateOfInterest=" + rateOfInterest + ", creditScore="
+        + creditScore + ", duration=" + duration + '}';
   }
 }
